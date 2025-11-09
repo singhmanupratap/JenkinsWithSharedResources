@@ -5,7 +5,7 @@ library identifier: 'Common-Library@main', retriever: legacySCM([$class: 'GitSCM
                         credentialsId: scm.userRemoteConfigs[0].credentialsId]]])
 
 pipeline {
-    agent { label 'windows' }
+    agent { label 'Windows' }
     
     parameters {
         string(name: 'TARGET_DATE', defaultValue: '2025-11-09', description: 'Date parameter for PowerShell script')
