@@ -15,9 +15,9 @@ pipeline {
                     runPowerShellonRemote([
                         Date: "2025-11-09",
                         UserName: "jenkins",
-                        RemoteHost: "localhost",
-                        RemoteUser: 'singh.manupratap@outlook.com',
-                        RemotePassword: 'man5480U#',  // Don't do this in production!,
+                        RemoteHost: "192.168.1.120",
+                        RemoteUser: 'TestRemoteUser',
+                        RemotePassword: 'TestPass123!',  // Don't do this in production!,
                         RemoteFile: "D:\\Users\\singh\\source\\repos\\JenkinsSetUp\\scripts\\sample.ps1"
                     ])
                 }
