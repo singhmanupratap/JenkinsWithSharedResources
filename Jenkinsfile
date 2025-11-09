@@ -1,4 +1,4 @@
-// Example Jenkins Pipeline using runpowerShell shared library
+// Example Jenkins Pipeline using runPowerShell shared library
 library identifier: 'Common-Library@main', retriever: legacySCM([$class: 'GitSCM', 
     branches: [[name: '*/main']], 
     userRemoteConfigs: [[url: 'https://github.com/singhmanupratap/Common-Library.git', 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo "=== Local PowerShell Execution ==="
-                    runpowerShell([
+                    runPowerShell([
                         Date: params.TARGET_DATE,
                         UserName: params.TARGET_USER
                     ])
@@ -38,7 +38,7 @@ pipeline {
                 script {
                     echo "=== Remote PowerShell Execution (Direct Credentials) ==="
                     // Note: This is for demonstration only - use credentialsId in production
-                    runpowerShell([
+                    runPowerShell([
                         Date: params.TARGET_DATE,
                         UserName: params.TARGET_USER,
                         RemoteHost: params.REMOTE_HOST,
@@ -57,7 +57,7 @@ pipeline {
                 script {
                     echo "=== Remote PowerShell Execution (Jenkins Credentials) ==="
                     // Clean single-call approach with credentials
-                    runpowerShell([
+                    runPowerShell([
                         Date: params.TARGET_DATE,
                         UserName: params.TARGET_USER,
                         RemoteHost: params.REMOTE_HOST,
@@ -71,7 +71,7 @@ pipeline {
             steps {
                 script {
                     echo "=== Custom PowerShell Script with Credentials ==="
-                    runpowerShell([
+                    runPowerShell([
                         fileName: 'custom-script.ps1',  // If you have other PS scripts
                         Date: params.TARGET_DATE,
                         UserName: params.TARGET_USER,
@@ -87,7 +87,7 @@ pipeline {
             steps {
                 script {
                     echo "=== Multiple Custom Parameters ==="
-                    runpowerShell([
+                    runPowerShell([
                         Date: params.TARGET_DATE,
                         UserName: params.TARGET_USER,
                         Environment: 'Production',
